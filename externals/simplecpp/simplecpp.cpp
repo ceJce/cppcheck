@@ -3339,7 +3339,7 @@ void simplecpp::preprocess(simplecpp::TokenList &output, const simplecpp::TokenL
         if (dui.undefined.find(macroname) != dui.undefined.end())
             continue;
         const std::string lhs(macrostr.substr(0,eq));
-        const std::string rhs(eq==std::string::npos ? std::string("1") : macrostr.substr(eq+1));
+        const std::string rhs(eq == std::string::npos ? lhs : macrostr.substr(eq + 1));
         const Macro macro(lhs, rhs, dummy);
         macros.insert(std::pair<TokenString,Macro>(macro.name(), macro));
     }
